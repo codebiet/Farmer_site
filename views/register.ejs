@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/0f13cdf771.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400;500&family=Comfortaa&family=Raleway:wght@500&display=swap"
+        rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./CSS/utils.css">
+    <link rel="stylesheet" href="./CSS/style.css"> -->
+    <link rel="stylesheet" href="./CSS/login-register.css">
+
+    <title>Farmer_Site</title>
+</head>
+
+<body>
+<div class="register-box">
+    <% if(messages.error) { %>
+        <span style="color:rgb(114, 160, 245);" class="text-red-500 text-sm"><%= messages.error %></span><br>
+        <% } %>
+        <form action="/register" method="post">
+            <img src="./img/avatar.png" class="avatar">
+            <h1>Register Here</h1>
+                <label for="" class="all">Username</label><br>
+                <input type="text" name="username" id="name" placeholder="Your Name"><br><br>
+               
+                <!-- <label for="">Password:</label> -->
+                <label for="" class="all">Email:</label><br>
+                <input type="email" name="email" id="mail" placeholder="Enter Your Email"><br><br>
+                <label for="" class="all"> Password:</label><br>
+                <input type="password" name="password" id="pass" placeholder="Your Password"><br><br>
+                <label for="" class="all">Mobile Number:</label><br>
+                <!-- <select name="" id="ph">
+                        <option value="">+91</option>
+                        <option value="">+92</option>
+                        <option value="">+93</option>
+                        <option value="">+94</option>
+                        <option value="">+95</option>
+                    </select> -->
+                <input type="number" name="phone" id="num" placeholder="Enter Mobile Number"><br><br>
+                <!-- <label for="" class="all">Re-enter Password:</label><br>
+                    <input type="password" name="Rpassword" id="Rpass" placeholder="Re-enter Your Password"><br><br> -->
+                <label for="" name="1" class="all">Gender&nbsp:-&nbsp</label>
+                &nbsp Male:&nbsp<input type="radio" name="1" class="all">&nbspFemale:&nbsp<input type="radio" name="1"
+                    class="all">&nbspOther:&nbsp<input type="radio" name="1" class="all"><br><br>
+    
+                <label for="" class="all">Role :-&nbsp</label>
+                &nbsp Farmer:&nbsp<input type="radio" name="role">&nbspRetailer:&nbsp<input type="radio"
+                    name="role"><br><br>
+    
+                <input type="submit" name="submit" value="Register">
+                <a href="/login" >
+                    Aready have Account?
+                  </a>
+        </form>
+</div>
+</body>
+
+
+</html>

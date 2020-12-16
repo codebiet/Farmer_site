@@ -1,0 +1,175 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    background: url(../img/login-bg.jpg);
+    background-size: cover;
+    font-family: sans-serif;
+}
+.login-box{
+    width: 400px;
+    height: 420px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+    border-radius: 10px;
+}
+.avatar{
+    width: 115px;
+    height: 115px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+    font-size: 20px;
+}
+h1{
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 26px;
+}
+.login-box p{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    font-size: 20px;
+}
+.login-box input{
+    width: 100%;
+    margin-bottom: 20px;
+}
+.login-box input[type="text"],input[type="password"]{
+    border: none;
+    border-bottom: 1px solid black;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+}
+.login-box input[type="submit"]{
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #1c8adb;
+    color: white;
+    font-size: 20px;
+    border-radius: 20px;
+}
+.login-box input[type="submit"]:hover{
+    cursor: pointer;
+    background:  #57b4f7 ;
+    color: #000;
+    
+}
+.login-box a{
+    text-decoration: none;
+    font-size: 14px;
+    color: #fff;
+    font-size: 15px;
+}
+.login-box a:hover{
+    color: rgb(58, 93, 250);
+}
+
+.login-box ::placeholder{
+    color: rgb(41, 41, 40);
+    font-style: italic;
+}
+
+
+/* Registration css */
+
+.register-box{
+    width: 501px;
+    height: 581px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+    border-radius: 10px;
+    font-family: sans-serif;
+
+}
+.register-box a{
+    color:#fff;
+    text-decoration: none;
+}
+.register-box a:hover{
+    color: rgb(58, 93, 250);
+}
+.register-box .all{
+    text-align: center;
+    /* margin-left: 200px; */
+   
+   
+}
+.register-box input[type="text"],input[type="password"],input[type="email"],input[type="number"],#ph{
+    
+    width: 80%;
+    border: none;
+    border-bottom: 1px solid black;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+}
+.register-box .all{
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+.register-box ::placeholder{
+    color: rgb(41, 41, 40);
+    font-style: italic;
+}
+.register-box input[type="submit"]{
+    border: none;
+    outline: none;
+    height: 25px;
+    margin-right: 20px;
+    background: #1c8adb;
+    color: white;
+    font-size: 15px;
+    border-radius: 10px;
+    padding: 0px 10px;
+
+    
+}
+.register-box input[type="submit"]:hover{
+    color: cadetblue;
+    cursor: pointer;
+    color: black;
+    font-weight: bold;
+}
+.register-box input[type="reset"]{
+    border: none;
+    outline: none;
+    height: 25px;
+    margin-left: 220px;
+    background: #1c8adb;
+    color: white;
+    font-size: 15px;
+    border-radius: 10px;
+    padding: 0px 10px;
+  
+    
+}
+.register-box input[type="reset"]:hover{
+    color: cadetblue;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+}
