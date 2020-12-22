@@ -13,13 +13,18 @@ const LocalStrategy = require("passport-local").Strategy
 const bcrypt = require("bcrypt");
 const session = require("express-session");
 const MongoDbStore = require("connect-mongo")(session);
+const multer = require("multer");
+
+
+//set template engine
+app.set("view engine",'ejs');
 
 app.use(flash());
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.json());
 
-//set template engine
-app.set("view engine",'ejs');
+
 
 
 //database connection
@@ -30,21 +35,6 @@ connection.once('open',() => {
 }).catch(err => {
     console.log('Connected failed....');
 });
-
-//session store
-let mongoStore = new MongoDbStore({
-    mongooseConnection:connection,
-    collection:'sessions'
-});
-
-//session config
-app.use(session({
-    secret: process.env.COOKIE_SECRET,
-    resave:false,
-    store:mongoStore,//nhi to by default memory mai store kr dega isliye db mai store krne ke liye mongostore banana pda
-    saveUninitialized:false,
-    cookie:{maxAge:1000*60*60*24} //24 hours
-}))
 
 //schemas
 const userSchema=new mongoose.Schema({
@@ -64,15 +54,77 @@ const userSchema=new mongoose.Schema({
     phone:{
         type:Number,
         required:true
-    },
-
-    role:{
-        type:String,
-        required:true
     }
 },{timestamps:true});
 //create model for UserSchema
 const User=mongoose.model("User",userSchema);
+
+const profileSchema=new mongoose.Schema({
+    customerId:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref:'User',
+        required:true
+    },
+    profileimage:{
+        type:String,
+        required:true,  
+    },
+    fname:{
+        type:String,
+        required:true
+    },
+    lname:{
+        type:String,
+        required:true
+    },
+    category:{
+        type:String,
+        required:true
+    },
+    phone:{
+        type:Number,
+        required:true
+    },
+    email:{
+        type:String,
+        required:true,
+        unique:true
+    },
+    state:{
+        type:String,
+        required:true
+    },
+    district:{
+        type:String,
+        required:true
+    },
+    village:{
+        type:String,
+        required:true
+    },
+    pincode:{
+        type:Number,
+        required:true
+    }
+
+},{timestamps:true});
+//create model for profileSchema
+const Profile=mongoose.model("Profile",profileSchema);
+
+//session store
+let mongoStore = new MongoDbStore({
+    mongooseConnection:connection,
+    collection:'sessions'
+});
+
+//session config
+app.use(session({
+    secret: process.env.COOKIE_SECRET,
+    resave:false,
+    store:mongoStore,//nhi to by default memory mai store kr dega isliye db mai store krne ke liye mongostore banana pda
+    saveUninitialized:false,
+    cookie:{maxAge:1000*60*60*24} //24 hours
+}))
 
 
 // passport config
@@ -109,6 +161,38 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
+// set storage engine for multer 
+const storage = multer.diskStorage({
+    destination:'./public/uploads/',
+    filename : function(req, file ,cb){
+        cb(null,file.fieldname +"-"+ Date.now() + path.extname(file.originalname));
+        }
+});
+
+const upload = multer({ 
+    storage : storage,
+    limits:{fileSize:2000000},
+    fileFilter:function(req,file,cb){
+       checkFileType(file,cb);
+    }
+  }).single("profileimage");
+
+//   check fileType
+function checkFileType(file,cb){
+    // allow extension
+    const filetypes=/jpeg|jpg|png|gif/;
+    // check extension
+    const extname=filetypes.test(path.extname(file.originalname).toLowerCase());
+    // check mimetype
+    const mimetype=filetypes.test(file.mimetype);
+
+    if(mimetype && extname){
+        return cb(null,true);
+    }else{
+        cb('Error : Images only!')
+    }
+}
+
 
 
 
@@ -124,6 +208,11 @@ app.get("/login",(req,res) => {
 app.get("/register",(req,res) => {
     res.render("register")
   });
+
+app.get("/profile",(req,res) => {
+    res.render("profile")
+  });
+
 
 app.post("/register",(req,res) => {
     const {username,email,password,phone,role} = req.body
@@ -144,7 +233,7 @@ app.post("/register",(req,res) => {
                    }
             });
    
-            //hash
+            //hashing
             const hashpassword= bcrypt.hashSync(password,10);
             
             //create a user
@@ -152,8 +241,7 @@ app.post("/register",(req,res) => {
                username:username,
                email:email,
                password:hashpassword,
-               phone:phone,
-               role:role
+               phone:phone
             });
             
             user.save().then((user) =>{
@@ -182,16 +270,51 @@ app.post("/login",(req,res,next) => {
               req.flash('error',info.message)
             return  next(err)
           }
-           res.redirect("/")
+          return  res.redirect("/profile")
         })
 
      })(req,res,next);
 });
 
 
-app.get("/contact",(req,res) => {
-    res.render("contact")
+app.post("/profile",upload,(req,res) => {
+    // console.log(req.file)
+    const {fname,lname,category,phone,email,state,district,village,pincode} = req.body;
+
+    const profile = new Profile({
+        customerId:req.user._id,
+        profileimage:req.file.filename,
+        fname,
+        lname,
+        category,
+        phone,
+        email,
+        state,
+        district,
+        village,
+        pincode
+    });
+    profile.save().then((profile) =>{
+        // console.log(profile);
+        return res.redirect('/profile',)
+    }).catch((err) => {
+        return res.redirect("/login")
+    });
+
+    // profile.save(result,function(err){
+    //     if(err){
+    //         console.log(err)
+    //     }else{
+    //     console.log(result)
+    //     // res.render("/profile",{profile:profile});
+    //     }
+    // });
+
+
+
+    // res.render("profile")
   });
+
 
 
 

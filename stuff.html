@@ -1,0 +1,11 @@
+<% if(profile.profileimage){ %>
+    <div class="profile-section">
+      <img src="./uploads/<%=profile.profileimage %>" alt="" class="small-user-img" />
+      <a href="#" class="user-name"><%= profile.fname %> </a>
+    </div>
+ <% }else{ %>
+    <div class="profile-section">
+      <img src="./img/man.png" alt="" class="small-user-img" />
+      <a href="#" class="user-name">user-name</a>
+    </div>
+ <% } %>

@@ -1,0 +1,541 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+/* -----------top section----------- */
+
+.site-id span a {
+  font-family: var(--font-3);
+  font-weight: bold;
+  color: var(--light-green);
+  text-shadow: 2px 2px 1px rgb(107, 48, 48);
+}
+
+.site-id > a {
+  font-size: 1.3rem;
+  text-decoration: none;
+  color: var(--font-3);
+  text-align: center;
+}
+
+.user-name {
+  text-decoration: none;
+}
+
+/* ---profile page-------------- */
+.dashboard {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  background-color: rgb(239 255 200);
+}
+/* =========================================== */
+/* ---------side bar-------------- */
+
+.side-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 300px;
+  height:fit-content;
+  margin: 10px;
+  border: 1px solid;
+  box-shadow: 1px 1px 4px 0px black;
+  background-color: white;
+}
+.side-bar-items {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  padding: 5px 0px;
+  border-bottom: 1px solid rgb(137, 218, 32);
+  width: 100%;
+  /* margin: 5px 0px; */
+}
+
+.side-bar-items:hover {
+  background-color: rgb(104, 199, 2);
+}
+.side-bar-items img {
+  max-width: 45px;
+  max-height: 40px;
+  margin: 0px 20px;
+  width: 30%;
+}
+
+.side-bar-items a {
+  font-size: 1.3rem;
+  text-decoration: none;
+  margin-left: 10px;
+  color: rgb(1, 65, 1);
+  font-weight: bold;
+  font-family: var(--font-3);
+}
+
+/* =========================================== */
+
+/* ------------content side---------- */
+.content {
+  position: relative;
+  width: 70%;
+  height: max-content;
+  border: 1px solid;
+  overflow: hidden;
+  margin: 10px 5px;
+  padding: 10px;
+  background-color: white;
+  box-shadow: 1px 1px 4px 0px black;
+  background-color: white;
+}
+
+/* ========================================================= */
+/* ----profile section------------------ */
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 10px;
+  height: fit-content;
+}
+
+.profile h1 {
+  font-size: 2rem;
+  color: rgb(28, 150, 38);
+  font-family: var(--font-4);
+  text-align: center;
+  margin: 10px auto;
+}
+.hr-small {
+  width: 100%;
+  height: 1px;
+  background-color: rgb(0, 0, 0);
+}
+
+.user-face {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  margin: 10px;
+}
+
+.identity {
+  display: flex;
+  padding: 10px;
+}
+.identity img {
+  min-width: 150px;
+  min-height: 150px;
+  border: 1px solid;
+  margin: 0px 10px;
+}
+
+.identity input {
+  height: max-content;
+  align-self: flex-end;
+}
+.btn {
+  height: auto;
+  min-width: 100px;
+  padding: 4px;
+  align-self: flex-end;
+  margin: 0px 10px;
+  margin-bottom: 30px;
+}
+
+.edit-info {
+  width: auto;
+  align-self: flex-end;
+  margin-right: 40px;
+}
+
+.btn:hover {
+  transition: none;
+  transform: none;
+  background-color: darkolivegreen;
+  color: white;
+}
+.basic-info {
+  width: 100%;
+}
+.basic-info h2 {
+  font-size: 1.6rem;
+  color: rgb(62, 107, 66);
+  font-family: var(--font-3);
+  margin: 10px auto;
+}
+
+.basic-info form {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-item {
+  display: flex;
+  justify-content: space-evenly;
+  /* align-items: center; */
+  width: 100%;
+  padding: 10px;
+}
+
+.form-item label {
+  width: 30%;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: rgb(15, 46, 15);
+  padding: 0px 10px;
+  align-items: flex-end;
+}
+
+.form-item input,
+select {
+  width: 40%;
+  padding: 10px;
+  align-items: flex-end;
+  margin-right: 20px;
+  font-size: 1.2rem;
+  outline: none;
+  border: 2px solid black;
+  border-radius: 15px;
+  color: rgb(59, 177, 59);
+  box-shadow: 1px 1px 8px rgb(139, 177, 65);
+}
+
+/* =========================================================== */
+
+/* ------------advertisement page css------------- */
+.Advertisement {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+  font-family: var(--font-4);
+}
+
+.Advertisement h1 {
+  font-size: 2rem;
+  text-align: center;
+  color: darkgreen;
+}
+
+.hr-small-1 {
+  width: 30%;
+  margin: auto;
+}
+.confirm-type {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 20px 0px;
+}
+
+.confirm-type h2 {
+  font-size: 1.7rem;
+  color: rgb(3, 184, 3);
+}
+
+.confirm-type div {
+  justify-self: flex-start;
+}
+
+.confirm-type label {
+  font-size: 1.4rem;
+  font-family: var(--font-3);
+  font-weight: bold;
+}
+.confirm-type input {
+  width: 20px;
+  margin: 0px 5px;
+}
+
+/* ------form css------------ */
+
+.ad-form {
+  width: 95%;
+  margin: 10px auto;
+}
+.ad-form form {
+  display: flex;
+  flex-direction: column;
+}
+.ad-form .form-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.form-item label {
+  font-size: 1.4rem;
+  font-family: var(--font-3);
+}
+
+.form-item ::placeholder,
+select option {
+  font-size: 1.2rem;
+  font-family: var(--font-3);
+  color: darkgreen;
+}
+
+.form-item select {
+  min-width: 40%;
+  padding: 10px;
+}
+
+.form-item {
+  color: darkgreen;
+}
+
+/* .quantity-order input{
+  width: 50%;
+  justify-content: flex-start;
+} */
+
+#crop-unit {
+  min-width: 10%;
+  width: 120px;
+}
+
+.buttons-section {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+/* ==================================================== */
+
+/* --------CHANGE PASSWORD----------- */
+
+.update-password {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.update-password h1 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 10px;
+  font-family: var(--font-2);
+  color: rgb(96, 199, 142);
+  text-shadow: 1px 1px 1px black;
+}
+
+.current-new-password {
+  width: 90%;
+  margin: 10px auto;
+}
+.form-item {
+  align-items: center;
+}
+.form-item label {
+  justify-self: flex-start;
+}
+
+.form-item input {
+  justify-self: flex-end;
+}
+
+/* ============================================= */
+
+/* ------------------all activity  page-css---------- */
+
+.Manage-activities {
+  padding: 10px;
+  width: 90%;
+}
+
+.Manage-activities h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 10px;
+  color: darkgreen;
+  font-family: var(--font-2);
+}
+
+.activity-intro {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0px;
+}
+
+.activity-intro h2,
+h3 {
+  font-family: var(--font-2);
+  font-size: 1.8rem;
+  color: rgb(105, 158, 0);
+}
+
+.activity-intro p {
+  padding: 3px 10px;
+  color: rgb(52, 99, 99);
+  font-weight: bold;
+  font-family: var(--font-3);
+}
+
+h3 {
+  text-align: center;
+  font-size: 2rem;
+  margin: 0px;
+}
+
+.active-post,
+.suspended-post {
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.active-post .post {
+  background-color: rgb(238, 248, 178);
+
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+  border: 1px solid olivedrab;
+  margin: 5px 10px;
+  height: auto;
+  min-width: 36%;
+  padding:0px;
+  border-radius: 10px;
+  
+  box-shadow:  2px 2px 1px rgb(32, 17, 17);
+}
+
+.audience {
+  font-size: 1.6rem;
+  margin: 5px;
+  font-weight: bold;
+  text-align: center;
+  font-family: var(--font-2);
+}
+
+#user-message-ad {
+  text-align: center;
+  font-size: 1.3rem;
+  font-family: var(--font-4);
+  text-shadow: 1px 1px 3px rgb(252, 252, 252);
+  color: rgb(8, 64, 66);
+  margin: 10px ;
+}
+
+.user-details,
+.ad-details {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  /* border: 1px solid;  */
+  font-size: 1.2rem;
+  margin: 10px 0px;
+}
+
+.user-details {
+  justify-content: space-evenly;
+  /* border: 2px solid rgb(8, 8, 1); */
+  box-shadow: 2px 2px 5px black;
+  padding: 5px ;
+  font-family: var(--font-4);
+  background-color: rgb(125, 247, 145);
+  border-radius: 3px;
+  margin: 5px;
+  color: rgb(15, 2, 2);
+}
+
+.address-details{
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-self: flex-start;
+  align-items: center;
+  justify-content: center;
+  margin: 0px 3px;
+  font-size: 1rem;
+  /* flex-direction: column; */
+}
+
+.creator-name {
+  width: 35%;
+  /* justify-self: flex-start; */
+  font-size: 1.1rem;
+  /* font-weight: bold; */
+  border-right: 2px solid rgb(1, 255, 56);
+  padding-right: 4px ;
+  text-align: center;
+  margin-right: 5px;
+
+}
+
+.ad-crop-quantity {
+  width: 40%;
+  padding: 10px 5px;
+  text-align: center;
+  border: 1px solid rgb(114, 65, 5);
+  background-color: rgb(180, 119, 119);
+  box-shadow: 2px 2px 6px rgb(65, 65, 32);
+  border-radius: 10px;
+  margin: 5px 0px;
+  color: rgb(0, 0, 0);
+  font-family: var(--font-3);
+  font-weight: bold;
+}
+
+.address-details img {
+  width: 30px;
+  margin-bottom: 3px;
+}
+
+.hr-small {
+  height: 1px;
+  background-color: teal;
+  border: 1px solid teal;
+  border-radius: 10px;
+}
+
+.suspended-post .post {
+  background-color: rgb(220 220 220);
+}
+
+.suspended-post .post #user-message{
+  color: black;
+}
+
+
+
+
+/* -----------utils class-------------- */
+
+.fadeout {
+  display: none;
+}
+
+.fadein {
+  /* position: absolute; */
+  display: block;
+  width: 100%;
+  height: auto;
+  top: 0px;
+}
+
+.btn {
+  align-items: center;
+  width: 20%;
+  height: 40px;
+  margin: 20px auto;
+  font-size: 1.2rem;
+  font-family: var(--font-3);
+  padding: 5px;
+}
+
+.btn1{
+  width: 50%;
+  margin-top: 4px;
+  margin-bottom: 6px;
+}

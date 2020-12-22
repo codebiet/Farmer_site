@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://kit.fontawesome.com/0f13cdf771.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400;500&family=Comfortaa&family=Raleway:wght@500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="./CSS/utils.css" />
+  <link rel="stylesheet" href="./CSS/style.css" />
+  <link rel="stylesheet" href="./CSS/profile-page.css" />
+
+  <title>Farmer_Site</title>
+</head>
+
+<body>
+  <section>
+    <div class="top-section">
+      <div class="site-id">
+        <img src="./img/logo.png" alt="logo" />
+        <span class="p-heading">
+          <a href="./index.html" style="text-decoration: none">KishanMitra</a>
+        </span>
+        <!-- <a href="./index.html"> Home</a> -->
+      </div>
+
+      <!-- ----Profile Section--------------- -->
+     
+      
+    </div>
+  </section>
+
+  <section class="dashboard">
+
+    <!-- ---------side bar------------ -->
+    <div class="side-bar">
+      <div class="side-bar-items" id="profile">
+        <img src="./img/profile-avatar.png" alt="" />
+        <a href="#content-item-1">Profile</a>
+      </div>
+      <div class="side-bar-items" id="change-password">
+        <img src="./img/profile-password.svg" alt="" />
+        <a href="#content-item-2">Change Password</a>
+      </div>
+      <div class="side-bar-items" id="Create post">
+        <img src="./img/profile-advertisement.png"/>
+        <a href="#content-item-3">Create Post</a>
+      </div>
+      <div class="side-bar-items" id="activity">
+        <img src="./img/profile-history.png" alt="" />
+        <a href="#content-item-4">All Activity</a>
+      </div>
+     
+    </div>
+
+    <!-- ------------content section---------- -->
+    <div class="content">
+
+      <!-- -------Profile Section-------------- -->
+      <div class="content-item" id="content-item-1">
+        <div class="profile">
+          <h1>Account Information</h1>
+          <hr class="hr-small" />
+
+          <!-- user-image and change option -->
+          <div class="user-face">
+            <img src="./img/profile-avatar.png" alt="" id="user-image" style="height:100px; width:100px;" />
+            <!-- <div class="identity">
+              <img src="" alt="" id="user-image" />
+              <input type="file" name='profile-pic' id="profile-pic" />
+            </div> -->
+            <!-- ---edit button , when clicked remove attribute readonly from all input tags ---------- -->
+            <div class="edit-info">
+              <a class="btn" id="edit-info-btn">Edit Info</a>
+            </div>
+          </div>
+
+          <!-- ---basic Information-- -->
+          <div class="basic-info">
+            <h2>Basic Information</h2>
+            <hr class="hr-small" />
+            <!-- first form---------->
+            <form action="/profile" method="post" enctype="multipart/form-data">
+
+              <div class="form-item" id="profile-image-change" style="display: none;">
+                <label for="firstname">Upload Image</label>
+                <input type="file" name='profileimage' id="profile-pic" />
+              </div>
+
+              <div class="form-item">
+                <label for="firstname">First Name</label>
+                <input type="text" name="fname"  value="" readonly />
+              </div>
+
+              <div class="form-item">
+                <label for="lastname">Last Name</label>
+                <input type="text" name="lname"  value="" readonly />
+              </div>
+
+              <div class="form-item">
+                <label for="category">Category</label>
+                <input type="text" name="category" value="" readonly />
+              </div>
+
+              <div class="form-item">
+                <label for="Mob No">Phone Number</label>
+                <input type="number" name="phone" value="" readonly />
+              </div>
+
+              <div class="form-item">
+                <label for="Email">Email</label>
+                <input type="email" name="email" value="" readonly />
+              </div>
+            
+
+            <!-- -----------Address Information ----------- -->
+            <h2>Business Location</h2>
+            <hr class="hr-small" />
+            <!-- <form action=""> -->
+              <div class="form-item">
+                <label for="State">State</label>
+                <input type="text" name="state" value="" readonly />
+              </div>
+
+              <div class="form-item">
+                <label for="District">District</label>
+                <input type="text" name="district" value="" readonly />
+              </div>
+
+              <div class="form-item">
+                <label for="Village">Village</label>
+                <input type="text" name="village" value="" readonly />
+              </div>
+
+              <div class="form-item">
+                <label for="Pincode">Pincode</label>
+                <input type="number" name="pincode" value="" readonly />
+              </div>
+              <button type="submit" class="btn" id="profile-detail-submit" style="display: none;" >Save Info</button>
+
+
+            </form>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- ---------Update Password Section------------- -->
+
+      <div class="content-item fadeout" id="content-item-2">
+        <div class="update-password">
+          <h1>Update Password </h1>
+          <hr class="hr-small">
+          <div class="current-new-password">
+            <form action="">
+              <div class="form-item">
+                <label for="Current Pass">Current Password : </label>
+                <input type="password" name="curpassword" id="curpassword" placeholder=" Your Current Password">
+              </div>
+              <div class="form-item">
+                <label for="New Password :">New Password : </label>
+                <input type="password" name="newpassword" id="newpassword" placeholder="Your New Password">
+              </div>
+              <div class="form-item">
+                <label for="confirm Pass">Confirm New Password : </label>
+                <input type="password" name="newpassword" id="confirmnewpassword" placeholder="Confirm New Password">
+              </div>
+            </form>
+            <div class="buttons-section">
+              <button type="submit" class="btn">Save</button>
+              <button type="reset" class="btn">Reset</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- -----Advertisement Section--------- -->
+
+      <div class="content-item fadeout" id="content-item-3" >
+        <div class="Advertisement">
+          <h1>Create Your Advertisement </h1>
+          <hr class="hr-small hr-small-1">
+          <div class="confirm-type">
+            <h2>Continue as :</h2>
+            <div>
+              <input type="radio" name="user-type" id="user-type" value="farmer">
+              <label for="farmer">Farmer</label>
+            </div>
+
+            <div>
+              <input type="radio" name="user-type" id="user-type" value="retailer">
+              <label for="Retailer">Retailer</label>
+            </div>
+
+          </div>
+          <hr class="hr-small">
+
+          <div class="ad-form">
+            <form action="">
+              <div class="form-item">
+                <label for="user-name">Name</label>
+                <input type="text" value="" placeholder="Enter Your Name" />
+              </div>
+
+              <div class="form-item">
+                <label for="Crop-type">Select Crop</label>
+                <select name="Crop" id="crop">
+                  <option value="wheat">Wheat</option>
+                  <option value="Rice">Rice</option>
+                  <option value="Mustard">Mustard</option>
+                  <option value="Pulses">Pulses</option>
+                  <option value="Sugarcane">Pulses</option>
+                  <option value="Fruits">Fruits</option>
+                  <option value="Vegetable"> Vegetables</option>
+                </select>
+              </div>
+
+              <div class="form-item quantity-order">
+                <label for="crop-quantity">Crop-quantity</label>
+                <input type="number" value="" placeholder="Enter Crop Quantity" />
+                <select name="crop-unit" id="crop-unit">
+                  <option value="kilo">kilo</option>
+                  <option value="Quintol">Quintol</option>
+                </select>
+              </div>
+
+
+              <div class="form-item">
+                <label for="District">District</label>
+                <input type="text" value="" placeholder="Enter Your District Name" />
+              </div>
+
+              <div class="form-item">
+                <label for="message">Message</label>
+                <input type="text" id="user-message" maxlength="100" placeholder="Want to add something">
+              </div>
+
+              <div class="form-item">
+                <label for="Pincode">Pincode</label>
+                <input type="text" id='pincode' value="" maxlength="6" placeholder="Enter Your Area Pincode" />
+              </div>
+          </div>
+          <div class="buttons-section">
+            <button type="submit" class="btn">Create Ad</button>
+            <button type="reset" class="btn">Reset</button>
+          </div>
+
+
+
+        </div>
+      </div>
+
+
+      <!-- -----------all Activities Section--------------- -->
+      <div class="content-item fadeout" id="content-item-4">
+        <div class="Manage-activities">
+          <h1>All activities</h1>
+          <hr class="hr-small">
+
+          <div class="activity-intro">
+            <h2>Features</h1>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam eius vero veniam repudiandae beatae,
+                vel
+                .</p>
+          </div>
+
+          <hr class="hr-small">
+
+          <h3>Active Post</h3>
+          <hr class="hr-small-1">
+          <div class="active-post">
+            <div class="post" id="post1">
+              <p class="audience">For Buyers</p>
+              <hr class="hr-small">
+
+              <div class="ad-details">
+                <p class="ad-crop-quantity" id="crop-display">
+                  Crop-name
+                </p>
+                <p class="ad-crop-quantity" id="quantity-display">
+                  quantity
+                </p>
+              </div>
+              <p id="user-message-ad">
+                Lorem ipsum dolor sit amet consectetur.
+              </p>
+              <div class="user-details">
+                <p class="creator-name">Enter User Name </p>
+                <div class="address-details">
+                  <img src="./img/address.svg" alt="address">
+                  <p id="user-address">Lorem ipsum dolor sit.</p>
+                </div>
+              </div>
+              <button type="submit" class="btn btn1">Disable Post</button>
+
+            </div>
+          </div>
+
+        
+          <hr class="hr-small">
+          <h3>Suspended Post</h3>
+          <hr class="hr-small-1">
+          <div class="suspended-post">
+            <div class="post" id="post1">
+              <p class="audience">For Buyers</p>
+              <hr class="hr-small">
+
+              <div class="ad-details">
+                <p class="ad-crop-quantity" id="crop-display">
+                  Crop-name
+                </p>
+                <p class="ad-crop-quantity" id="quantity-display">
+                  quantity
+                </p>
+              </div>
+              <p id="user-message-ad">
+                Lorem ipsum dolor sit amet consectetur.
+              </p>
+              <div class="user-details">
+                <p class="creator-name">Enter User Name </p>
+                <div class="address-details">
+                  <img src="./img/address.svg" alt="address">
+                  <p id="user-address">Lorem ipsum dolor sit.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <script>
+
+
+  // console.log("hii arun");
+document.querySelectorAll('.side-bar-items a').forEach((link)=>{
+    link.addEventListener('click',()=>{
+
+        let clickedlink=link.getAttribute('href');
+        for (var i=1;i<=4;i++){
+            if (clickedlink!=`#content-item-${i}`){
+                console.log(`#content-item-${i}`);
+                document.querySelector(`#content-item-${i}`).classList.add('fadeout')
+            }
+            else{
+                document.querySelector(clickedlink).classList.toggle('fadeout');
+            }
+        }
+     
+
+    });
+});
+
+document.querySelector('#edit-info-btn').addEventListener('click',()=>{
+    document.querySelectorAll('.form-item input').forEach((input)=>{
+        input.removeAttribute('readonly');
+
+    });
+    document.querySelector('#profile-detail-submit').removeAttribute('style')
+    document.querySelector('#profile-image-change').style.display='flex'
+
+});
+// document.querySelector('#edit-info-btn').addEventListener('click',()=>{
+//     document.querySelectorAll('.form-item input').forEach((input)=>{
+//         input.removeAttribute('readonly');
+
+//     });
+//     document.querySelector('#profile-detail-submit').removeAttribute('style')
+
+// });
+
+
+</script>
+</body>
+
+</html>
