@@ -28,7 +28,10 @@
       </div>
 
       <!-- ----Profile Section--------------- -->
-     
+      <div class="profile-section">
+        <img src="./img/man.png" alt="" class="small-user-img" />
+        <a href="#" class="user-name">User name</a>
+      </div>
       
     </div>
   </section>
@@ -53,6 +56,13 @@
         <img src="./img/profile-history.png" alt="" />
         <a href="#content-item-4">All Activity</a>
       </div>
+      <form id="logout" action="/logout" method="post">
+        <div class="side-bar-items" id="activity">
+          <img src="./img/logout.png" alt="" />
+          <a onclick="document.getElementById('logout').submit()" href="#">Log out</a>
+        </div>
+      </form>
+     
      
     </div>
 
@@ -346,7 +356,7 @@ document.querySelectorAll('.side-bar-items a').forEach((link)=>{
         let clickedlink=link.getAttribute('href');
         for (var i=1;i<=4;i++){
             if (clickedlink!=`#content-item-${i}`){
-                console.log(`#content-item-${i}`);
+                // console.log(`#content-item-${i}`);
                 document.querySelector(`#content-item-${i}`).classList.add('fadeout')
             }
             else{

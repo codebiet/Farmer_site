@@ -15,6 +15,9 @@ const session = require("express-session");
 const MongoDbStore = require("connect-mongo")(session);
 const multer = require("multer");
 
+//middleware import
+const auth = require("./middleware/auth");
+const back_control = require("./middleware/back_control");
 
 //set template engine
 app.set("view engine",'ejs');
@@ -225,13 +228,13 @@ function checkFileType(file,cb){
 
 
 
-
+//routes
 
 app.get("/",(req,res) => {
-  res.render("home1")
+  res.render("home")
 });
 
-app.get("/home2",(req,res) => {
+app.get("/home2",auth,(req,res) => {
     res.render("home2")
   });
 
@@ -243,16 +246,16 @@ app.get("/about",(req,res) => {
     res.render("about")
   });
 
-app.get("/login",(req,res) => {
+app.get("/login",back_control,(req,res) => {
     res.render("login")
   });
 
-app.get("/register",(req,res) => {
+app.get("/register",back_control,(req,res) => {
     res.render("register")
   });
 
 
-app.get("/profile",(req,res) => {
+app.get("/profile",auth,(req,res) => {
 
     // console.log(req.user._id)
     Profile.find({customerId:req.user._id}, (err,foundprofile) => {
@@ -269,7 +272,7 @@ app.get("/profile",(req,res) => {
 
 });
 
-app.get("/editprofile",(req,res) => {
+app.get("/editprofile",auth,(req,res) => {
     res.render("editprofile")
   });
 
@@ -346,8 +349,12 @@ app.post("/login",(req,res,next) => {
      })(req,res,next);
 });
 
+app.post("/logout",(req,res) => {
+        req.logout()
+        return res.redirect('/');
+});
 
-app.post("/editprofile",upload,(req,res) => {
+app.post("/editprofile",auth,upload,(req,res) => {
     // console.log(req.file)
     const {fname,lname,category,phone,email,state,district,village,pincode} = req.body;
 
@@ -384,7 +391,7 @@ app.post("/editprofile",upload,(req,res) => {
 
   });
 
-app.post("/updatepassword",(req,res) => {
+app.post("/updatepassword",auth,(req,res) => {
 
 const {currentpassword,newpassword} = req.body;
 
@@ -408,7 +415,7 @@ if(bcrypt.compareSync(currentpassword,req.user.password)){
 
 
 
-app.post("/create_post",(req,res) => {
+app.post("/create_post",auth,(req,res) => {
     const {username,crop,cropquantity,massage,district,pincode} = req.body;
 
     const post = new Post({
