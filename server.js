@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 //database connection
-mongoose.connect(process.env.MONGO_CONNECTION_URL,{useNewUrlParser:true, useCreateIndex:true, useUnifiedTopology:true, useFindAndModify:true});
+mongoose.connect(process.env.MONGO_CONNECTION_URL,{useNewUrlParser:true,useFindAndModify:false, useCreateIndex:true, useUnifiedTopology:true, useFindAndModify:true});
 const connection = mongoose.connection;
 connection.once('open',() => {
     console.log("Database connected....");
@@ -111,6 +111,36 @@ const profileSchema=new mongoose.Schema({
 //create model for profileSchema
 const Profile=mongoose.model("Profile",profileSchema);
 
+//createing  post schma
+const postSchema=new mongoose.Schema({
+    username:{
+        type:String,
+        required:true
+    },
+    crop:{
+        type:String,
+        required:true
+    },
+    cropquantity:{
+        type:Number,
+        required:true
+    },
+    district:{
+        type:String,
+        required:true
+    },
+   massage:{
+        type:String,
+        required:true
+   },
+   pincode:{
+        type:Number,
+        required:true
+    }
+},{timestamps:true});
+//create model for postSchema
+const Post=mongoose.model("Post",postSchema);
+
 //session store
 let mongoStore = new MongoDbStore({
     mongooseConnection:connection,
@@ -140,7 +170,7 @@ passport.use(new LocalStrategy({usernameField:'email'}, async (email,password,do
            if(match){
               return done(null,user,{message:'Logged in succesfully'})
            }
-          return done(null,false,{message:'Wrong username or password'})
+          return done(null,false,{message:'Wrong email or password'})
        }).catch((err) => {
 
           return  done(null,false,{message:'Something went wrong'})
@@ -198,8 +228,20 @@ function checkFileType(file,cb){
 
 
 app.get("/",(req,res) => {
-  res.render("home")
+  res.render("home1")
 });
+
+app.get("/home2",(req,res) => {
+    res.render("home2")
+  });
+
+app.get("/contact",(req,res) => {
+    res.render("contact")
+  });
+
+app.get("/about",(req,res) => {
+    res.render("about")
+  });
 
 app.get("/login",(req,res) => {
     res.render("login")
@@ -209,15 +251,43 @@ app.get("/register",(req,res) => {
     res.render("register")
   });
 
+
 app.get("/profile",(req,res) => {
-    res.render("profile")
+
+    // console.log(req.user._id)
+    Profile.find({customerId:req.user._id}, (err,foundprofile) => {
+    // console.log(foundprofile[0]);
+    res.render("profile",{profile:foundprofile[0]})
+
+});
+
+// Post.find({customerId:req.user._id}, (err,foundpost) => {
+     
+//     // console.log(foundprofile[0]);
+//     res.render("profile",{post:foundpost[0]})
+// });
+
+});
+
+app.get("/editprofile",(req,res) => {
+    res.render("editprofile")
   });
 
 
+// app.get("/create_post",(req,res) => {
+//     res.render("create_post")
+//   });
+
+
+// app.get("/updatepassword",(req,res) => {
+//     res.render("updatepassword")
+//   });
+
+
 app.post("/register",(req,res) => {
-    const {username,email,password,phone,role} = req.body
+    const {username,email,password,phone} = req.body
             //validate request
-            if(!username || !email || !password || !phone || !role){
+            if(!username || !email || !password || !phone){
                 req.flash('error','All fields are required')//ek hi bar request krne ke liye hota hai
                 // req.flash('name',name)
                 // req.flash('email',email)
@@ -245,10 +315,10 @@ app.post("/register",(req,res) => {
             });
             
             user.save().then((user) =>{
-                res.redirect('/')
+                res.render('home2')
             }).catch((err) => {
                 req.flash('error','Something went wrong')//ek hi bar request krne ke liye hota hai
-                res.redirect("/")
+                res.redirect("/register")
             });
 
   });
@@ -270,14 +340,14 @@ app.post("/login",(req,res,next) => {
               req.flash('error',info.message)
             return  next(err)
           }
-          return  res.redirect("/profile")
+          return  res.redirect("/home2")
         })
 
      })(req,res,next);
 });
 
 
-app.post("/profile",upload,(req,res) => {
+app.post("/editprofile",upload,(req,res) => {
     // console.log(req.file)
     const {fname,lname,category,phone,email,state,district,village,pincode} = req.body;
 
@@ -296,7 +366,7 @@ app.post("/profile",upload,(req,res) => {
     });
     profile.save().then((profile) =>{
         // console.log(profile);
-        return res.redirect('/profile',)
+        return res.redirect('/profile')
     }).catch((err) => {
         return res.redirect("/login")
     });
@@ -310,14 +380,55 @@ app.post("/profile",upload,(req,res) => {
     //     }
     // });
 
-
-
     // res.render("profile")
+
   });
 
+app.post("/updatepassword",(req,res) => {
+
+const {currentpassword,newpassword} = req.body;
+
+if(bcrypt.compareSync(currentpassword,req.user.password)){
+
+    //hashing
+    const hashpassword= bcrypt.hashSync(newpassword[0],10);
+        User.findByIdAndUpdate(req.user._id,{password:hashpassword},(err,result) => {
+              if(err){
+                  console.log(err)
+              }else{
+                //   console.log(result)
+                res.redirect("/profile");
+              }
+        });
+}
+// console.log(req.user.password);
+// res.redirect("/profile");
+});
+
+
+
+
+app.post("/create_post",(req,res) => {
+    const {username,crop,cropquantity,massage,district,pincode} = req.body;
+
+    const post = new Post({
+        username,
+        crop,
+        cropquantity,
+        massage,
+        district,
+        pincode
+    });
+    post.save().then((post) => {
+        //  console.log(post);
+        return res.redirect('/profile')
+    }).catch((err) => {
+        console.log(err);
+    });
+});
 
 
 
 app.listen(1000,() => {
     console.log("server is listen at port 1000 ")
-})
+});

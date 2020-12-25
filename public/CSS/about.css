@@ -1,0 +1,303 @@
+*{
+    box-sizing: border-box;
+}
+
+.about-intro{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    height: 40vh;
+    background-color: rgba(5, 10, 1, 0.388);
+    color: rgb(232, 236, 0);
+    margin: 10px 0px;
+    margin-bottom: 20px;
+    padding: 10px;
+    /* box-shadow: 2px 2px 9px 1px rgb(38, 39, 38); */
+
+
+}
+.about-intro::before{
+    position: absolute;
+    content: '';
+    background: url('../img/about-bg-2.jpg') center center/cover;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 90%;
+}
+
+.about-intro h1{
+    font-size: 3rem;
+    text-shadow: 2px 2px 5px rgb(26, 2, 2);
+    font-family: var(--font-2);
+    text-align: center;
+    margin: 5px auto;
+}
+
+.about-intro p{
+    align-self: center;
+    /* width: 80%; */
+    margin: 5px auto;
+    font-size: 1.2rem;
+    color: rgb(201, 255, 93);
+    /* text-shadow: 2px 2px 5px rgb(26, 2, 2); */
+    font-family: var(--font-3);
+}
+
+/* ====================Journey Section================ */
+.our-journey{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 15px auto;
+    padding: 20px;
+    border: 1px solid;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px 2px rgb(56, 83, 0) ;
+    /* background-color: rgba(133, 187, 40, 0.507); */
+}
+.our-journey h2{
+    font-size: 2.5rem;
+    font-family: var(--font-2);
+    color: rgb(19, 80, 1);
+    margin-bottom: 0px;
+    text-align: start;
+    margin: 2px;
+}
+
+.our-journey hr{
+    max-width:150px ;
+    /* margin:5px auto; */
+    background-color: indianred;
+    height: 4px;
+    border: 1px solid beige;
+    border-radius: 20px;
+    margin: 0px 2px;
+    
+}
+
+.our-journey p{
+    font-size: 1.2rem;
+    font-weight: lighter;
+    text-align: start;
+    margin: 15px 10px;
+    /* background-color: rgba(133, 187, 40, 0.507); */
+}
+
+/* ===================Benefits -Section=============================== */
+
+#s-heading{
+    font-size: 2.5rem;
+    font-family: var(--font-2);
+    color: rgb(19, 80, 1);
+    margin-bottom: 0px;
+    text-align: center;
+    margin: 2px auto;
+    margin-bottom: 0px;
+
+}
+
+.hr-small-1{
+    width:10% ;
+    margin:5px auto;
+    background-color: indianred;
+    height: 4px;
+    border: 1px solid beige;
+    border-radius: 20px;
+
+}
+
+.benefits {
+    display: flex;
+    flex-direction: column;
+    padding:15px;
+    margin: 10px auto;
+    background: rgba(128, 190, 137, 0.459);
+    /* border: 1px solid black; */
+    width: 90%;
+   
+}
+
+
+
+.benefit-items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 2px solid yellowgreen; */
+    padding: 0px;
+    margin:2px auto;
+    /* margin-bottom: 0px; */
+    background-color:rgb(255, 255, 255);
+    box-shadow: 2px 2px 7px 3px rgba(26, 26, 11, 0.678);
+    min-height: 40vh;
+    transition: all 0.1s ease-in-out;
+    border-radius: 4px;
+}
+
+.benefit-items:hover{
+    transform: scale(1.01);
+}
+
+.benefit-items img{
+    max-width: 22%;
+    max-height: 40vh;
+    /* margin: 0px 10px; */
+    /* border: 1px solid black; */
+    /* box-shadow: 2px 2px 7px 1px rgba(26, 26, 11, 0.459); */
+}
+
+.benefit-details{
+    padding: 10px 20px;
+    width: 75%;
+    height: 100%;
+}
+
+.benefit-details h2{
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: rgb(0, 90, 20);
+    font-family: var(--font-3);
+    font-weight: bold;
+}
+
+.benefit-details p{
+    font-size: 1rem;
+    /* margin-bottom: 10px; */
+    color: rgb(0, 0, 0);
+    font-family: var(--font-4);
+    /* font-weight: bold; */
+}
+
+.hr-small{
+    width: 20%;
+    margin: 0px;
+    height: 3px;
+    background-color: yellowgreen;
+    border: 1px solid yellowgreen;
+    border-radius: 20px;
+}
+
+
+
+
+/* ===========================Team Section============================= */
+
+
+#team-intro{
+    text-align: center;
+    font-size: 1.1rem;
+    margin: 5px 40px ;
+    font-family: var(--font-4);
+}
+
+
+.margin-top{
+    margin-top: 40px;
+}
+
+.team{
+    display: flex;
+    width: 70%;
+    margin: 15px auto;
+    padding: 20px 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(172, 202, 185, 0.418);
+    border-radius: 10px;
+    /* border: 1px solid black; */
+}
+
+.team-member{
+    max-width: 250px;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid; */
+    margin:15px;
+    /* margin-bottom: px; */
+    /* padding:  1px 1px; */
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 1px 1px 7px rgba(19, 29, 21, 0.61);
+    transition: all 0.5s ease-in-out;
+}
+
+.team-member:hover{
+    transform: scale(1.1);
+}
+.member-identity {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.member-identity p,h3{
+    margin: 1px;
+    margin-bottom: 0px;
+
+}
+
+.member-identity h3{
+    font-size: 1.5rem;
+    font-family: var(--font-2);
+    color: rgb(39, 99, 0);
+    font-weight: bold;
+}
+
+
+.member-identity p{
+    margin: 10px ;
+    text-align: center;
+    font-size: 12px;
+    font-family: var(--font-4);
+    color: rgb(0, 0, 0);
+    
+}
+#designation{
+    margin: 0px;
+    text-align: center;
+    font-size: 1.1rem;
+    /* font-weight: bold; */
+    font-family: var(--font-3);
+    color: rgb(190, 0, 48);
+
+}
+
+
+
+
+.member-identity img{
+    width: 100%;
+    height: 170px;
+    /* height: 100px; */
+    /* border: 1px solid black; */
+    border-end-end-radius: 12px;
+    /* box-shadow: 1px 1px 2px 0px rgb(0, 0, 0); */
+}
+
+.member-social{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: rgba(90, 90, 0, 0.596); */
+    height: auto;
+    border-end-end-radius: 10px;
+
+}
+
+.member-social a{
+    text-decoration: none;
+}
+
+
+.social-icon img{
+    width: 25px;
+    margin: 10px;
+
+}

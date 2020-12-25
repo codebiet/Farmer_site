@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://kit.fontawesome.com/0f13cdf771.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400;500&family=Comfortaa&family=Raleway:wght@500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="./CSS/utils.css" />
+  <link rel="stylesheet" href="./CSS/style.css" />
+  <link rel="stylesheet" href="./CSS/profile-page.css" />
+
+  <title>Farmer_Site</title>
+</head>
+
+<body>
+  <section>
+<div class="content-item fadeout" id="content-item-3" >
+    <div class="Advertisement">
+      <h1>Create Your Advertisement </h1>
+      <hr class="hr-small hr-small-1">
+     <!-- <div class="confirm-type">
+        <h2>Continue as :</h2>
+        <div>
+          <input type="radio" name="user-type" id="user-type" value="farmer">
+          <label for="farmer">Farmer</label>
+        </div>
+
+        <div>
+          <input type="radio" name="user-type" id="user-type" value="retailer">
+          <label for="Retailer">Retailer</label>
+        </div>
+
+      </div>
+      <hr class="hr-small">-->
+
+      <div class="ad-form">
+        <form action="/create_post" method="post">
+
+          <div class="form-item">
+            <label for="user-name">Name</label>
+            <input type="text" value="" name="username" placeholder="Enter Your Name" />
+          </div>
+
+          <div class="form-item">
+            <label for="Crop-type">Select Crop</label>
+            <select name="Crop" id="crop">
+              <option value="wheat">Wheat</option>
+              <option value="Rice">Rice</option>
+              <option value="Mustard">Mustard</option>
+              <option value="Pulses">Pulses</option>
+              <option value="Sugarcane">Pulses</option>
+              <option value="Fruits">Fruits</option>
+              <option value="Vegetable"> Vegetables</option>
+            </select>
+          </div>
+
+          <div class="form-item quantity-order">
+            <label for="crop-quantity">Crop-quantity</label>
+            <input type="number" value="" name="cropquantity" placeholder="Enter Crop Quantity" />
+            <select name="cropunit" id="crop-unit">
+              <option value="kilo">kilo</option>
+              <option value="Quintol">Quintol</option>
+            </select>
+          </div>
+
+
+          <div class="form-item">
+            <label for="District">District</label>
+            <input type="text" value="" name="district" placeholder="Enter Your District Name" />
+          </div>
+
+          <div class="form-item">
+            <label for="message">Message</label>
+            <input type="text" id="user-message" maxlength="100" name="massage" placeholder="Want to add something">
+          </div>
+
+          <div class="form-item">
+            <label for="Pincode">Pincode</label>
+            <input type="text" id='pincode' value="" maxlength="6" name="pincoad" placeholder="Enter Your Area Pincode" />
+          </div>
+      </div>
+      <div class="buttons-section">
+        <button type="submit" class="btn">Create Ad</button>
+        <button type="reset" class="btn">Reset</button>
+      </div>
+
+
+    </form>
+    </div>
+  </div>
+
+  </section>
+  </body>
+</html>

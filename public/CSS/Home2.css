@@ -1,0 +1,150 @@
+/* ----------------Intro section------------ */
+
+
+
+.intro-left{
+    grid-area: intro-left;
+    border: 1px solid black;
+    position: relative;
+    height: auto;
+
+}
+
+.intro-left::before{
+    position: absolute;
+    content: '';
+    background: url('../img/bg-2.jpg') center center; 
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.7;
+    background-repeat: repeat-x;
+}
+
+/* .intro-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} */
+
+.intro-left h2 {
+    font-weight: bold;
+    margin: 5px;
+    font-size: 2.5rem;
+    color: rgb(248, 244, 0);
+    text-shadow: 3px 3px 8px black;
+    font-family: var(--font-3);
+}
+
+
+.intro-left p{
+    text-align: center;
+    font-size: 1.3rem;
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px 10px rgb(0, 0, 0);
+    font-family: var(--font-4);
+}
+
+
+.intro-section{
+    
+    margin: 10px 2px;
+    width: 100%;
+    height: 280px;
+    display: grid;
+    grid-template-areas: 
+    'intro-left intro-left intro-left intro-left '
+    'intro-left intro-left intro-left intro-left '
+    ;
+    grid-gap: 15px;
+    /* justify-items: stretch; */
+    align-items: stretch;
+}
+
+.hr-long{
+    width: 100%;
+    height: 2%;
+    background-color: rgba(0, 0, 0, 0.849);
+}
+
+ 
+
+.wrapper .hr-post{
+    width: 20%;
+    height: 2px;
+    background-color: rgb(232 31 229);
+}
+
+
+/* --------------------------------  Post Css          ------------------------ */
+
+
+.post{
+    margin: 5px 0;
+    display: grid;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    height: 100%;
+    max-width: fit-content;
+    place-items: center;
+    text-align: center;
+   
+}
+.slider{
+    max-width: 1500px;
+    background: rgba(253, 249, 249, 0.959);
+    display: flex;
+}
+.slider .cards{
+    flex: 1;
+    border-radius: 5px;
+   
+    margin: 10px 10px;
+    background:rgb(184, 105, 105);
+}
+.slider .cards .img{
+    height: 200px;
+    width: 100%;
+}
+.slider .cards .img img{
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+.slider .cards .content{
+    padding: 10px 20px;
+}
+.slider .cards .content .title{
+    font-size: 25px;
+    font-weight: 600;
+}
+.slider .cards .content .sub-title{
+    font-size: 20px;
+    font-weight: 600;
+    color: rgb(151, 252, 36);
+    line-height: 20px;
+}
+.cards .content p{
+    text-align: justify;
+    margin: 10px 0;
+}
+.post .cards .content .btn1{
+    display: block;
+    text-align: left;
+    margin: 10px 0;
+}
+.post .slider .cards .content .btn1 button{
+   background: rgb(113, 113, 224);
+   color: white;
+   border: none;
+   outline:none;
+   font-size: 17px;
+   padding: 5px 6px;
+   border-radius: 5px;
+   cursor: pointer;
+   transition: 0.2s;
+}
+.slider .cards .content .btn1 button:hover{
+    transform: scale(1.1,1.1);
+}
