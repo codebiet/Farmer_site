@@ -22,7 +22,7 @@
       <div class="site-id">
         <img src="./img/logo.png" alt="logo" />
         <span class="p-heading">
-          <a href="./index.html" style="text-decoration: none">KishanMitra</a>
+          <a href="/home2" style="text-decoration: none">KishanMitra</a>
         </span>
         <!-- <a href="./index.html"> Home</a> -->
       </div>
@@ -49,20 +49,26 @@
     <div class="side-bar">
       <div class="side-bar-items" id="profile">
         <img src="./img/profile-avatar.png" alt="" />
-        <a href="#content-item-1">Profile</a>
+        <a href="./editprofile">Edit Profile</a>
       </div>
       <div class="side-bar-items" id="change-password">
         <img src="./img/profile-password.svg" alt="" />
-        <a href="#content-item-2">Change Password</a>
+        <a href="./updatepassword">Change Password</a>
       </div>
       <div class="side-bar-items" id="Create_post">
-        <img src="./img/advertisement.png" alt="" />
-        <a href="#content-item-3">Create Post</a>
+        <img src="./img/profile-password.svg" alt="" />
+        <a href="./createpost">Create Post</a>
       </div>
       <div class="side-bar-items" id="activity">
         <img src="./img/profile-history.png" alt="" />
-        <a href="#content-item-4">All Activity</a>
+        <a href="./allactivity">All Activity</a>
       </div>
+      <form id="logout" action="/logout" method="post">
+        <div class="side-bar-items" id="activity">
+          <img src="./img/logout.png" alt="" />
+          <a onclick="document.getElementById('logout').submit()" href="#">Log out</a>
+        </div>
+      </form>
      
     </div>
 
@@ -77,30 +83,30 @@
 
           
           <!-- user-image and change option -->
-          <div class="user-face">
-            <img src="./img/profile-avatar.png" alt="" id="user-image" style="height:100px; width:100px;" />
+          <!-- <div class="user-face">
+            <img src="./img/profile-avatar.png" alt="" id="user-image" style="height:100px; width:100px;" /> -->
             <!-- <div class="identity">
               <img src="" alt="" id="user-image" />
               <input type="file" name='profile-pic' id="profile-pic" />
             </div> -->
             <!-- ---edit button , when clicked remove attribute readonly from all input tags ---------- -->
-            <div class="edit-info">
+            <!-- <div class="edit-info">
               <a class="btn" id="edit-info-btn">Edit Info</a>
-            </div>
-          </div>
+            </div> -->
+          <!-- </div> -->
 
             
           <!-- ---basic Information-- -->
           <div class="basic-info">
-            <h2>Basic Information</h2>
-            <hr class="hr-small" />
+            <!-- <h2>Basic Information</h2>
+            <hr class="hr-small" /> -->
             <!-- first form---------->
             <!-- <form action="/profile" method="post" enctype="multipart/form-data"> -->
 
-              <div class="form-item" id="profile-image-change" style="display: none;">
+              <!-- <div class="form-item" id="profile-image-change" style="display: none;">
                 <label for="firstname">Upload Image</label>
                 <input type="file" name='profileimage' id="profile-pic" />
-              </div>
+              </div> -->
 
               <div class="form-item">
                 <label for="firstname">First Name</label>
@@ -162,12 +168,12 @@
 
       <!-- ---------Update Password Section------------- -->
 
-      <div class="content-item fadeout" id="content-item-2">
+      <!-- <div class="content-item fadeout" id="content-item-2">
         <div class="update-password">
           <h1>Update Password </h1>
           <hr class="hr-small">
           <div class="current-new-password">
-            <form action="/updatepassword" method="post">
+            <form action="/profile/updatepassword" method="post">
 
               <div class="form-item">
                 <label for="Current Pass">Current Password : </label>
@@ -183,21 +189,21 @@
               </div>
 
               <div class="buttons-section">
-                <button type="submit" class="btn">Save</button>
+                <button type="submit" class="btn">Save</button>-->
                 <!-- <button type="reset" class="btn">Reset</button> -->
-              </div>
+              <!-- </div>
             </form>
            
           </div>
         </div>
-      </div>
+      </div> --> 
 
        <!-- -----Advertisement Section--------- -->
 
-       <div class="content-item fadeout" id="content-item-3" >
+       <!-- <div class="content-item fadeout" id="content-item-3" >
         <div class="Advertisement">
           <h1>Create Your Advertisement </h1>
-          <hr class="hr-small hr-small-1">
+          <hr class="hr-small hr-small-1"> -->
          <!-- <div class="confirm-type">
             <h2>Continue as :</h2>
             <div>
@@ -213,8 +219,8 @@
           </div>
           <hr class="hr-small">-->
       
-          <div class="ad-form">
-            <form action="/create_post" method="post">
+          <!-- <div class="ad-form">
+            <form action="/profile/createpost" method="post">
 
               <div class="form-item">
                 <label for="user-name">Name</label>
@@ -223,7 +229,7 @@
 
               <div class="form-item">
                 <label for="Crop-type">Select Crop</label>
-                <input type="text" value="" name="crop" placeholder="Enter Your crop name" />
+                <input type="text" value="" name="crop" placeholder="Enter Your crop name" /> -->
                 <!-- <select name="crop" id="crop" required>
                   <option value="wheat">Wheat</option>
                   <option value="Rice">Rice</option>
@@ -233,17 +239,17 @@
                   <option value="Fruits">Fruits</option>
                   <option value="Vegetable"> Vegetables</option>
                 </select> -->
-              </div>
+              <!-- </div>
 
               <div class="form-item quantity-order">
                 <label for="crop-quantity">Crop-quantity</label>
-                <input type="number" value="" name="cropquantity" placeholder="Enter Crop Quantity in Quintol" />
+                <input type="number" value="" name="cropquantity" placeholder="Enter Crop Quantity in Quintol" /> -->
                 <!-- <input type="text" value="" name="cropunit" placeholder="please enter your quantity in Quintol" /> -->
                 <!-- <select name="cropunit" id="crop-unit">
                   <option value="kilo">kilo</option>
                   <option value="Quintol">Quintol</option>
                 </select> -->
-              </div>
+              <!-- </div>
 
 
               <div class="form-item">
@@ -269,11 +275,11 @@
 
         </form>
         </div>
-      </div>
+      </div> -->
 
 
       <!-- -----------all Activities Section--------------- -->
-      <div class="content-item fadeout" id="content-item-4">
+      <!-- <div class="content-item fadeout" id="content-item-4">
         <div class="Manage-activities">
           <h1>All activities</h1>
           <hr class="hr-small">
@@ -352,29 +358,29 @@
 
 
     </div>
-  </section>
+  </section>-->
 
   <script>
 
 
   // console.log("hii arun");
-document.querySelectorAll('.side-bar-items a').forEach((link)=>{
-    link.addEventListener('click',()=>{
+// document.querySelectorAll('.side-bar-items a').forEach((link)=>{
+//     link.addEventListener('click',()=>{
 
-        let clickedlink=link.getAttribute('href');
-        for (var i=1;i<=4;i++){
-            if (clickedlink!=`#content-item-${i}`){
-                // console.log(`#content-item-${i}`);
-                document.querySelector(`#content-item-${i}`).classList.add('fadeout')
-            }
-            else{
-                document.querySelector(clickedlink).classList.toggle('fadeout');
-            }
-        }
+//         let clickedlink=link.getAttribute('href');
+//         for (var i=1;i<=4;i++){
+//             if (clickedlink!=`#content-item-${i}`){
+//                 // console.log(`#content-item-${i}`);
+//                 document.querySelector(`#content-item-${i}`).classList.add('fadeout')
+//             }
+//             else{
+//                 document.querySelector(clickedlink).classList.toggle('fadeout');
+//             }
+//         }
      
 
-    });
-});
+//     });
+// });
 
 // document.querySelector('#edit-info-btn').addEventListener('click',()=>{
 //     document.querySelectorAll('.form-item input').forEach((input)=>{

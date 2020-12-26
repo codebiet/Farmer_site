@@ -36,10 +36,10 @@
     </div>
   </section>
 
-  <section class="dashboard">
+  <section class="dashboard-editprofile">
 
     <!-- ---------side bar------------ -->
-    <div class="side-bar">
+    <!-- <div class="side-bar">
       <div class="side-bar-items" id="profile">
         <img src="./img/profile-avatar.png" alt="" />
         <a href="#content-item-1">Profile</a>
@@ -64,7 +64,7 @@
       </form>
      
      
-    </div>
+    </div> -->
 
     <!-- ------------content section---------- -->
     <div class="content">
@@ -75,55 +75,44 @@
           <h1>Account Information</h1>
           <hr class="hr-small" />
 
-          <!-- user-image and change option -->
-          <div class="user-face">
-            <img src="./img/profile-avatar.png" alt="" id="user-image" style="height:100px; width:100px;" />
-            <!-- <div class="identity">
-              <img src="" alt="" id="user-image" />
-              <input type="file" name='profile-pic' id="profile-pic" />
-            </div> -->
-            <!-- ---edit button , when clicked remove attribute readonly from all input tags ---------- -->
-            <div class="edit-info">
-              <a class="btn" id="edit-info-btn">Edit Info</a>
-            </div>
-          </div>
+    
 
           <!-- ---basic Information-- -->
           <div class="basic-info">
-            <h2>Basic Information</h2>
-            <hr class="hr-small" />
+            <!-- <h2>Basic Information</h2>
+            <hr class="hr-small" /> -->
             <!-- first form---------->
             <form action="/editprofile" method="post" enctype="multipart/form-data">
 
-              <div class="form-item" id="profile-image-change" style="display: none;">
+              <div class="form-item" id="profile-image-change" >
                 <label for="firstname">Upload Image</label>
                 <input type="file" name='profileimage' id="profile-pic" />
               </div>
 
               <div class="form-item">
                 <label for="firstname">First Name</label>
-                <input type="text" name="fname"  value="" readonly />
+                <input type="text" name="fname"  value="" />
               </div>
 
               <div class="form-item">
                 <label for="lastname">Last Name</label>
-                <input type="text" name="lname"  value="" readonly />
+                <input type="text" name="lname"  value=""  />
               </div>
 
               <div class="form-item">
                 <label for="category">Category</label>
-                <input type="text" name="category" value="" readonly />
+                <input type="text" name="category" value="" />
               </div>
 
               <div class="form-item">
                 <label for="Mob No">Phone Number</label>
-                <input type="number" name="phone" value="" readonly />
+                <input type="number" name="phone" value=""/>
               </div>
 
-              <div class="form-item">
+              <!-- <div class="form-item">
                 <label for="Email">Email</label>
-                <input type="email" name="email" value="" readonly />
-              </div>
+                <input type="email" name="email" value=""/>
+              </div> -->
             
 
             <!-- -----------Address Information ----------- -->
@@ -132,24 +121,24 @@
             <!-- <form action=""> -->
               <div class="form-item">
                 <label for="State">State</label>
-                <input type="text" name="state" value="" readonly />
+                <input type="text" name="state" value="" />
               </div>
 
               <div class="form-item">
                 <label for="District">District</label>
-                <input type="text" name="district" value="" readonly />
+                <input type="text" name="district" value=""  />
               </div>
 
               <div class="form-item">
                 <label for="Village">Village</label>
-                <input type="text" name="village" value="" readonly />
+                <input type="text" name="village" value=""/>
               </div>
 
               <div class="form-item">
                 <label for="Pincode">Pincode</label>
-                <input type="number" name="pincode" value="" readonly />
+                <input type="number" name="pincode" value=""/>
               </div>
-              <button type="submit" class="btn" id="profile-detail-submit" style="display: none;" >Save Info</button>
+              <button type="submit" class="btn" id="profile-detail-submit"  >Save Info</button>
 
 
             </form>
@@ -159,7 +148,7 @@
 
 
       <!-- ---------Update Password Section------------- -->
-
+<!-- 
       <div class="content-item fadeout" id="content-item-2">
         <div class="update-password">
           <h1>Update Password </h1>
@@ -185,10 +174,10 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- -----Advertisement Section--------- -->
-
+<!-- 
       <div class="content-item fadeout" id="content-item-3" >
         <div class="Advertisement">
           <h1>Create Your Advertisement </h1>
@@ -261,11 +250,11 @@
 
 
         </div>
-      </div>
+      </div> -->
 
 
       <!-- -----------all Activities Section--------------- -->
-      <div class="content-item fadeout" id="content-item-4">
+      <!-- <div class="content-item fadeout" id="content-item-4">
         <div class="Manage-activities">
           <h1>All activities</h1>
           <hr class="hr-small">
@@ -343,13 +332,13 @@
       </div>
 
 
-    </div>
+    </div>-->
   </section>
 
-  <script>
+  <!-- <script> 
 
 
-  // console.log("hii arun");
+  console.log("hii arun");
 document.querySelectorAll('.side-bar-items a').forEach((link)=>{
     link.addEventListener('click',()=>{
 
@@ -377,17 +366,17 @@ document.querySelector('#edit-info-btn').addEventListener('click',()=>{
     document.querySelector('#profile-image-change').style.display='flex'
 
 });
-// document.querySelector('#edit-info-btn').addEventListener('click',()=>{
-//     document.querySelectorAll('.form-item input').forEach((input)=>{
-//         input.removeAttribute('readonly');
+document.querySelector('#edit-info-btn').addEventListener('click',()=>{
+    document.querySelectorAll('.form-item input').forEach((input)=>{
+        input.removeAttribute('readonly');
 
-//     });
-//     document.querySelector('#profile-detail-submit').removeAttribute('style')
+    });
+    document.querySelector('#profile-detail-submit').removeAttribute('style')
 
-// });
+});
 
 
-</script>
+</script> -->
 </body>
 
 </html>

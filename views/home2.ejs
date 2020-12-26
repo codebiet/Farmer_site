@@ -32,7 +32,7 @@
          <div class="profile-section">
                 <img src="./img/man.png" alt="" class="small-user-img">
                 <!-- <span class="user-name">User Name</span> -->
-                <span><a href="./editprofile" class="user-name" >User Name</a></span>
+                <span><a href="./profile" class="user-name" >User Name</a></span>
             </div>
         </div>
 
@@ -84,28 +84,26 @@
         </div>
         <div class="post">
             <div class="slider owl-carousel">
-                <div class="cards">
-                    <div class="img"><img src="./img/bg-1.jpg" alt=""></div>
-                    <div class="content">
-                        <div class="title">Farmer-1</div>
-                        <div class="sub-title">content</div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas expedita at sed natus. Nostrum laborum aut culpa illum ipsa sapiente atque autem exercitationem, quia ipsum, maxime iusto odit earum deleniti est. Doloremque?</p>
-                        <div class="btn1">
-                            <button>read more</button>
-                        </div>
-                    </div>
-                </div>
+                <% posts.forEach((post) => { %>
                 <div class="cards">
                     <div class="img"><img src="./img/bg-2.jpg" alt=""></div>
                     <div class="content">
-                        <div class="title">Farmer-2</div>
-                        <div class="sub-title">content</div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas expedita at sed natus. Nostrum laborum aut culpa illum ipsa sapiente atque autem exercitationem, quia ipsum, maxime iusto odit earum deleniti est. Doloremque?</p>
+                        <div class="title">
+                            <h1><%= post.username %></h1>
+                        </div>
+                        <div class="sub-title">
+                            <h2><%= post.crop %></h2>
+                        </div>
+                        <p><%= post.massage %></p>
                         <div class="btn1">
                             <button>read more</button>
                         </div>
                     </div>
                 </div>
+             <% }) %>
+                 
+            
+                <!--
                 <div class="cards">
                     <div class="img"><img src="./img/bg-1.jpg" alt=""></div>
                     <div class="content">
@@ -138,7 +136,7 @@
                             <button>read more</button>
                         </div>
                     </div>
-                </div>
+                </div> -->
                
                
             </div>

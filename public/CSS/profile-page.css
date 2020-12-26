@@ -30,6 +30,12 @@
   padding: 5px;
   background-color: rgb(239 255 200);
 }
+.dashboard-editprofile{
+  display: flex;
+  justify-content:center;
+  padding: 5px;
+  background-color: rgb(239 255 200);
+}
 /* =========================================== */
 /* ---------side bar-------------- */
 
@@ -349,7 +355,7 @@ select option {
 
 .Manage-activities {
   padding: 10px;
-  width: 90%;
+  width: 100%;
 }
 
 .Manage-activities h1 {

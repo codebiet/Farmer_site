@@ -53,111 +53,65 @@ const userSchema=new mongoose.Schema({
     password:{
         type:String,
         required:true
-    
-    },
-    profileimage:{
-        type:String,
-         
-    },
-    fname:{
-        type:String,
-        
-    },
-    lname:{
-        type:String,
-       
-    },
-    category:{
-        type:String,
-        
-    },
-    phone:{
-        type:Number,
-        
-    },
-    state:{
-        type:String,
-        
-    },
-    district:{
-        type:String,
-        
-    },
-    village:{
-        type:String,
-        
-    },
-    pincode:{
-        type:Number,
-        
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now,
-      }
-});
+    }
+},{timestamps:true});
 //create model for UserSchema
 const User=mongoose.model("User",userSchema);
 
-// const profileSchema=new mongoose.Schema({
-//     customerId:{
-//         type: mongoose.Schema.Types.ObjectId,
-//         ref:'User',
-//         required:true
-//     },
-//     profileimage:{
-//         type:String,
-//         required:true,  
-//     },
-//     fname:{
-//         type:String,
-//         required:true
-//     },
-//     lname:{
-//         type:String,
-//         required:true
-//     },
-//     category:{
-//         type:String,
-//         required:true
-//     },
-//     phone:{
-//         type:Number,
-//         required:true
-//     },
-//     email:{
-//         type:String,
-//         required:true,
-//         unique:true
-//     },
-//     state:{
-//         type:String,
-//         required:true
-//     },
-//     district:{
-//         type:String,
-//         required:true
-//     },
-//     village:{
-//         type:String,
-//         required:true
-//     },
-//     pincode:{
-//         type:Number,
-//         required:true
-//     }
+const profileSchema=new mongoose.Schema({
+    customerId:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref:'User',
+        required:true
+    },
+    profileimage:{
+        type:String,
+        required:true,  
+    },
+    fname:{
+        type:String,
+        required:true
+    },
+    lname:{
+        type:String,
+        required:true
+    },
+    category:{
+        type:String,
+        required:true
+    },
+    phone:{
+        type:Number,
+        required:true
+    },
+    email:{
+        type:String,
+        required:true,
+        unique:true
+    },
+    state:{
+        type:String,
+        required:true
+    },
+    district:{
+        type:String,
+        required:true
+    },
+    village:{
+        type:String,
+        required:true
+    },
+    pincode:{
+        type:Number,
+        required:true
+    }
 
-// },{timestamps:true});
-// //create model for profileSchema
-// const Profile=mongoose.model("Profile",profileSchema);
+},{timestamps:true});
+//create model for profileSchema
+const Profile=mongoose.model("Profile",profileSchema);
 
 //createing  post schma
 const postSchema=new mongoose.Schema({
-    // customerId:{
-    //             type: mongoose.Schema.Types.ObjectId,
-    //             ref:'User',
-    //             required:true
-    //         },
     username:{
         type:String,
         required:true
@@ -181,12 +135,8 @@ const postSchema=new mongoose.Schema({
    pincode:{
         type:Number,
         required:true
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now,
-      }
-});
+    }
+},{timestamps:true});
 //create model for postSchema
 const Post=mongoose.model("Post",postSchema);
 
@@ -282,12 +232,11 @@ app.get("/",(req,res) => {
 
 app.get("/home2",(req,res) => {
 
-    Post.find({},(err,post) => {
-        res.render("home2",{posts:post})
-        // console.log(post)
-    });
+    Post.find().then((posts) => {
+       return  res.render("home2",{posts:posts})
+    })
     // res.render("home2")
-});
+  });
 
 app.get("/contact",(req,res) => {
     res.render("contact")
@@ -309,12 +258,18 @@ app.get("/register",(req,res) => {
 app.get("/profile",(req,res) => {
 
     // console.log(req.user)
-    User.findById(req.user._id, (err,user) => {
-    // console.log(user);
-    res.render("profile",{profile:user})
+    Profile.find({customerId:req.user._id}, (err,foundprofile) => {
+    // console.log(foundprofile[0]);
+    res.render("profile",{profile:foundprofile[0]})
 
-    });
-//   res.render("profile");
+});
+
+// Post.find({customerId:req.user._id}, (err,foundpost) => {
+     
+//     // console.log(foundprofile[0]);
+//     res.render("profile",{post:foundpost[0]})
+// });
+
 });
 
 app.get("/editprofile",(req,res) => {
@@ -331,13 +286,11 @@ app.get("/createpost",(req,res) => {
   });
 
 app.get("/allactivity",(req,res) => {
-
-    Post.find({},(err,post) => {
+    Post.find().then((post) => {
         res.render("allactivity",{post:post})
-        // console.log(post)
-    });
+    })
     // res.render("allactivity")
-});
+  });
 
 
 app.post("/register",(req,res) => {
@@ -370,7 +323,7 @@ app.post("/register",(req,res) => {
             });
             
             user.save().then((user) =>{
-                res.redirect('/home2')
+                res.render('home2')
             }).catch((err) => {
                 req.flash('error','Something went wrong')//ek hi bar request krne ke liye hota hai
                 res.redirect("/register")
@@ -395,7 +348,7 @@ app.post("/login",(req,res,next) => {
               req.flash('error',info.message)
             return  next(err)
           }
-          return  res.redirect("/home2")
+          return  res.redirect("/editprofile")
         })
 
      })(req,res,next);
@@ -408,34 +361,40 @@ app.post("/logout",(req,res) => {
 
 app.post("/editprofile",upload,(req,res) => {
     // console.log(req.file)
-    const {fname,lname,category,phone,state,district,village,pincode} = req.body;
-    
-    User.findById(req.user._id,(err,founduser) => {
-        if(err){console.log(err);}
-        else{
-            if(founduser){
-                founduser.profileimage=req.file.filename;
-                founduser.fname=fname;
-                founduser.lname=lname;
-                founduser.category=category;
-                founduser.phone=phone;
-                founduser.state=state;
-                founduser.district=district;
-                founduser.village=village;
-                founduser.pincode=pincode;
-                founduser.save().then((user) =>{
-                    // console.log(user);
-                    return res.redirect('/profile')
-                }).catch((err) => {
-                    return res.redirect("/login")
-                });
-            
-            }
-            
-        }
+    const {fname,lname,category,phone,email,state,district,village,pincode} = req.body;
+
+    const profile = new Profile({
+        customerId:req.user._id,
+        profileimage:req.file.filename,
+        fname,
+        lname,
+        category,
+        phone,
+        email,
+        state,
+        district,
+        village,
+        pincode
     });
-    
-});
+    profile.save().then((profile) =>{
+        // console.log(profile);
+        return res.redirect('/profile')
+    }).catch((err) => {
+        return res.redirect("/login")
+    });
+
+    // profile.save(result,function(err){
+    //     if(err){
+    //         console.log(err)
+    //     }else{
+    //     console.log(result)
+    //     // res.render("/profile",{profile:profile});
+    //     }
+    // });
+
+    // res.render("profile")
+
+  });
 
 app.post("/profile/updatepassword",(req,res) => {
 
@@ -466,7 +425,6 @@ app.post("/profile/createpost",(req,res) => {
     // console.log(req.body);
 
     const post = new Post({
-        // customerId:req.user._id,
         username,
         crop,
         cropquantity,
@@ -481,7 +439,6 @@ app.post("/profile/createpost",(req,res) => {
         console.log(err);
     });
 });
-
 
 
 

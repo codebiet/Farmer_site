@@ -18,7 +18,23 @@
 
 <body>
   <section>
-<div class="content-item fadeout" id="content-item-3" >
+    <div class="top-section">
+      <div class="site-id">
+        <img src="./img/logo.png" alt="logo" />
+        <span class="p-heading">
+          <a href="./" style="text-decoration: none">KishanMitra</a>
+        </span>
+        <!-- <a href="./index.html"> Home</a> -->
+      </div>
+
+      <!-- ----Profile Section--------------- -->
+      <!-- <div class="profile-section">
+        <img src="./img/man.png" alt="" class="small-user-img" />
+        <a href="#" class="user-name">User name</a>
+      </div> -->
+      
+    </div>
+  </section>
     <div class="Advertisement">
       <h1>Create Your Advertisement </h1>
       <hr class="hr-small hr-small-1">
@@ -36,10 +52,9 @@
 
       </div>
       <hr class="hr-small">-->
-
+      <form action="/profile/createpost" method="post">
+        
       <div class="ad-form">
-        <form action="/create_post" method="post">
-
           <div class="form-item">
             <label for="user-name">Name</label>
             <input type="text" value="" name="username" placeholder="Enter Your Name" />
@@ -47,7 +62,8 @@
 
           <div class="form-item">
             <label for="Crop-type">Select Crop</label>
-            <select name="Crop" id="crop">
+            <input type="text" value="" name="crop" placeholder="Enter Your crop" />
+            <!-- <select name="Crop" id="crop">
               <option value="wheat">Wheat</option>
               <option value="Rice">Rice</option>
               <option value="Mustard">Mustard</option>
@@ -55,16 +71,16 @@
               <option value="Sugarcane">Pulses</option>
               <option value="Fruits">Fruits</option>
               <option value="Vegetable"> Vegetables</option>
-            </select>
+            </select> -->
           </div>
 
           <div class="form-item quantity-order">
             <label for="crop-quantity">Crop-quantity</label>
-            <input type="number" value="" name="cropquantity" placeholder="Enter Crop Quantity" />
-            <select name="cropunit" id="crop-unit">
+            <input type="number" value="" name="cropquantity" placeholder="Enter your Crop Quantity" />
+            <!-- <select name="cropunit" id="crop-unit">
               <option value="kilo">kilo</option>
               <option value="Quintol">Quintol</option>
-            </select>
+            </select> -->
           </div>
 
 
@@ -80,19 +96,23 @@
 
           <div class="form-item">
             <label for="Pincode">Pincode</label>
-            <input type="text" id='pincode' value="" maxlength="6" name="pincoad" placeholder="Enter Your Area Pincode" />
+            <input type="text" id='pincode' value="" name="pincode" placeholder="Enter Your Area Pincode" />
           </div>
+
+          <div class="buttons-section">
+            <button type="submit" class="btn">Create Ad</button>
+            <button type="reset" class="btn">Reset</button>
+          </div>
+
       </div>
-      <div class="buttons-section">
-        <button type="submit" class="btn">Create Ad</button>
-        <button type="reset" class="btn">Reset</button>
-      </div>
+     
 
 
     </form>
+    
     </div>
-  </div>
 
-  </section>
+
+
   </body>
 </html>

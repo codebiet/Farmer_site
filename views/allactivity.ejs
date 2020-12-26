@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://kit.fontawesome.com/0f13cdf771.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400;500&family=Comfortaa&family=Raleway:wght@500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="./CSS/utils.css" />
+  <link rel="stylesheet" href="./CSS/style.css" />
+  <link rel="stylesheet" href="./CSS/profile-page.css" />
+
+  <title>Farmer_Site</title>
+</head>
+
+<body>
+  <section>
+    <div class="top-section">
+      <div class="site-id">
+        <img src="./img/logo.png" alt="logo" />
+        <span class="p-heading">
+          <a href="./" style="text-decoration: none">KishanMitra</a>
+        </span>
+        <!-- <a href="./index.html"> Home</a> -->
+      </div>
+
+      <!-- ----Profile Section--------------- -->
+      <!-- <div class="profile-section">
+        <img src="./img/man.png" alt="" class="small-user-img" />
+        <a href="#" class="user-name">User name</a>
+      </div> -->
+      
+    </div>
+  </section>
+   <!-- -----------all Activities Section--------------- -->
+  <div class="content-item" id="content-item-4">
+    <div class="Manage-activities">
+      <h1>All activities</h1>
+      <hr class="hr-small">
+
+      <div class="activity-intro">
+        <h2>Features</h1>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam eius vero veniam repudiandae beatae,
+            vel
+            .</p>
+      </div>
+
+      <hr class="hr-small">
+
+      <h3>Active Post</h3>
+      <hr class="hr-small-1">
+      <div class="active-post">
+        <%  post.forEach((post) => { %>
+            <div class="post" id="post1">
+                <p class="audience">For Buyers</p>
+                <hr class="hr-small">
+      
+                <div class="ad-details">
+                  <p class="ad-crop-quantity" id="crop-display">
+                    <%=post.crop %>
+                  </p>
+                  <p class="ad-crop-quantity" id="quantity-display">
+                    <%= post.cropquantity %><span>Qt.</span>
+                  </p>
+                </div>
+                <p id="user-message-ad">
+                    <%= post.massage %>
+                </p>
+                <div class="user-details">
+                  <p class="creator-name"><%= post.username %> </p>
+                  <div class="address-details">
+                    <img src="./img/address.svg" alt="address">
+                    <p id="user-address"><%= post.district %></p>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn1">Disable Post</button>
+      
+              </div>
+         <% }) %>
+        
+      </div>
+
+    
+      <hr class="hr-small">
+      <h3>Suspended Post</h3>
+      <hr class="hr-small-1">
+      <div class="suspended-post">
+        <div class="post" id="post1">
+          <p class="audience">For Buyers</p>
+          <hr class="hr-small">
+
+          <div class="ad-details">
+            <p class="ad-crop-quantity" id="crop-display">
+              Crop-name
+            </p>
+            <p class="ad-crop-quantity" id="quantity-display">
+              quantity
+            </p>
+          </div>
+          <p id="user-message-ad">
+            Lorem ipsum dolor sit amet consectetur.
+          </p>
+          <div class="user-details">
+            <p class="creator-name">Enter User Name </p>
+            <div class="address-details">
+              <img src="./img/address.svg" alt="address">
+              <p id="user-address">Lorem ipsum dolor sit.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  </body>
+  </html>
