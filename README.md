@@ -5,5 +5,5 @@
   <img src="kisanmitra.png" >
 </div>
 
-<p><a href="https://codebiet.github.io/Farmer_site/"><h1>Click_here_to_view</h1></a></p>
+<p><a href="https://piyush6702.github.io/kishanmitra-Frontend/"><h1>See the Trail Version</h1></a></p>
 </div>
