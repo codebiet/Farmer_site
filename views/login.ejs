@@ -16,18 +16,25 @@
 </head>
 
 <body>
+    <div class="login-register-intro">
+        <img src="./img/logo.png" alt="">
+        <div class="greeting-text">
+            <p>
+                <span>KishanMitra</span><br> Explore Your Business | Login Now ! </p>
+        </div>
 <div class="login-box">
         <% if(messages.error) { %>
                 <span style="color:rgb(114, 160, 245);" class="text-red-500 text-sm"><%= messages.error %></span><hr>
                 <% } %>
         <form  action="/login" method="post">
             <img src="./img/avatar.png" class="avatar"></img>
-            <h1>Login Here</h1>
-                <p>Email</p>
-                <input type="email" name="email" placeholder="Enter email">
+            <h1 class="log">Login Here</h1>
+                <p>Username</p>
+                <input type="email" name="email" placeholder="Enter Username">
                 <p>Password</p>
                 <input type="password" name="password" placeholder="Enter Password">
                 <input type="submit" name="submit" value="Login"><br>
+                <a href="#" class="forget">Forget Password ?</a>
                 <a href="/register" class="font-bold text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">
                         Don't have Account?
                       </a>
